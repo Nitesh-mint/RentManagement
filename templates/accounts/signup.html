@@ -1,0 +1,52 @@
+{%  load static%}
+<!DOCTYPE html>
+<!-- Designined by CodingLab - youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Responsive Registration Form   </title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    {% include 'includes/alerts.html' %}
+    <div class="title">SIGN UP</div>
+    <div class="content">
+      <form action="{% url 'signup' %}" method="POST">
+        {% csrf_token  %}
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">FIrst Name</span>
+                {{ f.first_name }}
+          </div>
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            {{ f.last_name }}
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            {{f.email}}
+          </div>
+          <!-- <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your number" required>
+          </div> -->
+          <div class="input-box">
+            <span class="details">Password</span>
+              {{ f.password }}
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+              {{ f.confirm_password }}
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Signup">
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
